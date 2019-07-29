@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>最完美的Hexo多电脑同步方法 | 壹派胡言</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.png"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-131361356-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">最完美的Hexo多电脑同步方法</h1><a id="logo" href="/.">壹派胡言</a><p class="description">移动互联网重度精神病患者</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">最完美的Hexo多电脑同步方法</h1><div class="post-meta">Jun 27, 2019</div><a class="disqus-comment-count" data-disqus-identifier="2019/06/27/最完美的Hexo多电脑同步方法/" href="/2019/06/27/最完美的Hexo多电脑同步方法/#disqus_thread"></a><div class="post-content"><p>经常我们有一个场景：需要在公司或者家庭多个电脑完成Hexo的博客撰写和发布工作。这就涉及到Hexo多电脑的同步问题。</p>
+<p>网上的方案基本上都是多分支方案。也即，在同一个仓库创建两个分支：</p>
+<ol>
+<li>Hexo分支 – 用来保存所有Hexo的源文件</li>
+<li>master分支 – 用来保存Hexo生成的博客文件</li>
+</ol>
+<p>在创建GitHub Pages或者Coding Pages时，以master分支为pages分支。<br>Hexo的deploy指向master分支部署pages，git的管理指向Hexo分支。</p>
+<p>但是这里有一个巨大的问题，就是多分支的方案一定是让完整的Hexo源文件暴露在公开的仓库了。这对一些Hexo博客采用的<code>leancloud阅读次数管理</code>、<code>多说评论</code>等服务的私有secret key也暴露在公开仓库分支了。如果对这些配置的<code>_config.yml</code>进行单独管理的话，又不能在另一台电脑直接<code>git pull</code>同步，非常的麻烦。</p>
+<p>所以<strong>Hexo最完美的多电脑同步方法</strong>是，创建两个仓库：</p>
+<ol>
+<li>Hexo私有仓库 – 用来保存所有Hexo的源文件</li>
+<li>master公开仓库 – 用来保存Hexo生成的博客文件</li>
+</ol>
+<p>下面来具体讲讲实现方法。</p>
+<h2 id="基础假设"><a href="#基础假设" class="headerlink" title="基础假设"></a>基础假设</h2><p>这里假设读者已经建立起了Hexo的博客系统了，实现了比方说：</p>
+<ol>
+<li>利用hexo d 直接deploy Hexo博客</li>
+<li>实现了Hexo的GitHub和Coding国外和国内的同时发布</li>
+<li>自行定义了例如<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">next</a>的第三方主题</li>
+</ol>
+<h2 id="Let’go"><a href="#Let’go" class="headerlink" title="Let’go!"></a>Let’go!</h2><h3 id="创建私有仓库"><a href="#创建私有仓库" class="headerlink" title="创建私有仓库"></a>创建私有仓库</h3><p>注册一个<a href="https://coding.net/" target="_blank" rel="noopener">Coding</a>账号，然后创建一个私有项目，名称为Hexo-my</p>
+<h3 id="建立本地git仓库"><a href="#建立本地git仓库" class="headerlink" title="建立本地git仓库"></a>建立本地git仓库</h3><p>进入你现有的Hexo文件夹，删除第三方主题的git配置，如对<code>next</code>主题</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -fr .<span class="regexp">/themes/</span><span class="keyword">next</span><span class="regexp">/.git/</span></span><br></pre></td></tr></table></figure>
+
+<p>然后建立本地的git仓库</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git init</span></span><br></pre></td></tr></table></figure>
+
+<p>创建一个<code>.gitignore</code>文件，并放在Hexo的根目录，内容为：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
+
+<h3 id="push到私有仓库"><a href="#push到私有仓库" class="headerlink" title="push到私有仓库"></a>push到私有仓库</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="keyword">add</span><span class="bash"> origin https://git.coding.net/&lt;yourname&gt;/Hexo-my.git</span></span><br><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line">git commit -m <span class="string">"my first private hexo"</span></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>至此，就完成了本地Hexo源码的全备份</p>
+<h2 id="在另一台电脑进行Hexo写作"><a href="#在另一台电脑进行Hexo写作" class="headerlink" title="在另一台电脑进行Hexo写作"></a>在另一台电脑进行Hexo写作</h2><p>上面已经完成了Hexo的全备份，那么如果在另一台电脑进行Hexo编辑呢。<br>当然首先你也要完成<code>node</code>/<code>npm</code>/<code>hexo</code>/<code>git</code>等环境的搭建和配置。</p>
+<h3 id="Hexo拉取"><a href="#Hexo拉取" class="headerlink" title="Hexo拉取"></a>Hexo拉取</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://git.coding.net/<span class="tag">&lt;yourname&gt;</span>/Hexo-my.git</span><br></pre></td></tr></table></figure>
+
+<p>这样你就拥有了你的所有Hexo源文件</p>
+<h3 id="Hexo编写和发布"><a href="#Hexo编写和发布" class="headerlink" title="Hexo编写和发布"></a>Hexo编写和发布</h3><p>尽管拉取下来了，还需要建立一下Hexo的环境，这里需要格外注意的一点是：<br>千万不要用<code>hexo init</code>命令。原因是当前目录已经建立了git仓库环境, <code>hexo init</code>会覆盖到当前的git环境，重建一个新的，这样和我们的私有Hexo源码仓库脱离了联系。</p>
+<p>正确的做法是：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+
+<p>因为<code>package.json</code>里面已经保存了<code>hexo</code>的必备资源包信息，<code>npm install</code>后Hexo环境就建立起来了。</p>
+<p>接下来就进行正常的编写和发布就好。<br>本地预览的命令还是：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
+
+<p>Hexo的发布命令是<code>hexo d</code>。</p>
+<p>最后执行<code>git status</code>把更改的新文件<code>git add</code>和<code>git commit</code>，最后<code>git push</code>到私有仓库，又会完成Hexo源码仓库的同步。</p>
+<h3 id="Hexo仓库更新"><a href="#Hexo仓库更新" class="headerlink" title="Hexo仓库更新"></a>Hexo仓库更新</h3><p>下次进行Hexo仓库拉取时执行：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all <span class="comment">#将git上所有文件拉取到本地</span></span><br><span class="line">git reset --hard origin/<span class="keyword">master</span>  <span class="title">#强制将本地内容指向刚刚同步git</span>云端内容</span><br></pre></td></tr></table></figure>
+
+<p>reset 对所拉取的文件不做任何处理，此处不用 pull 是因为本地尚有许多文件，使用 pull 会有一些版本冲突，解决起来也麻烦，而本地的文件都是初始化生成的文件，较拉取的库里面的文件而言基本无用，所以直接丢弃。</p>
+<p>END<br>从此，世界是如此的美好。</p>
+</div><div class="tags"><a href="/tags/hexo/">hexo</a><a href="/tags/同步/">同步</a></div><div class="post-nav"><a class="pre" href="/2019/06/27/通过DaoCloud的持续集成发布Hexo博客/">通过DaoCloud的持续集成发布Hexo博客</a><a class="next" href="/2019/06/24/hexo史上最全搭建教程/">hexo史上最全搭建教程</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'https://yisihudong.com/2019/06/27/最完美的Hexo多电脑同步方法/';
+    this.page.identifier = '2019/06/27/最完美的Hexo多电脑同步方法/';
+    this.page.title = '最完美的Hexo多电脑同步方法';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//dotnot.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//dotnot.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://dotnot.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/系统搭建/">系统搭建</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Typora/" style="font-size: 15px;">Typora</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/同步/" style="font-size: 15px;">同步</a> <a href="/tags/桌面App/" style="font-size: 15px;">桌面App</a> <a href="/tags/网页应用/" style="font-size: 15px;">网页应用</a> <a href="/tags/flutter/" style="font-size: 15px;">flutter</a> <a href="/tags/开发/" style="font-size: 15px;">开发</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/testfile001/">testfile001</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/印象笔记+hexo搭建自己的个人博客/">印象笔记+hexo搭建自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/直接让网页版应用做你的桌面-App/">直接让网页版应用做你的桌面 App</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/">用 Flutter 开发一个完整的应用是怎样的体验？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/Typora使用不完全总结/">Typora使用不完全总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/通过DaoCloud的持续集成发布Hexo博客/">通过DaoCloud的持续集成发布Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/最完美的Hexo多电脑同步方法/">最完美的Hexo多电脑同步方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/hexo史上最全搭建教程/">hexo史上最全搭建教程</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//dotnot.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.github.com/" title="github" target="_blank">github</a><ul></ul><a href="http://www.huxiu.com/" title="虎嗅网" target="_blank">虎嗅网</a><ul></ul><a href="http://www.36kr.com/" title="36kr" target="_blank">36kr</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">壹派胡言.</a> Powered by<a rel="nofollow" target="_blank" href="https://yisihudong.com"> BigHer Studio.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

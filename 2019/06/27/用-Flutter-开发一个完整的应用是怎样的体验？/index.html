@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>用 Flutter 开发一个完整的应用是怎样的体验？ | 壹派胡言</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.png"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-131361356-1','auto');ga('send','pageview');
+</script></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">用 Flutter 开发一个完整的应用是怎样的体验？</h1><a id="logo" href="/.">壹派胡言</a><p class="description">移动互联网重度精神病患者</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">用 Flutter 开发一个完整的应用是怎样的体验？</h1><div class="post-meta">Jun 27, 2019</div><a class="disqus-comment-count" data-disqus-identifier="2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/" href="/2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/#disqus_thread"></a><div class="post-content"><p>Flutter 是自 Ruby on Rails 或 Go 以来最让我感到兴奋的技术。 经过多年的努力深入学习 iOS 应用开发，最终疏远了那么多 Android 好友，这让我感到害怕。 此外，当时的跨平台框架对我来说毫无吸引力。</p>
+<p>就在两年前，meetup(译注：社交应用) 展示了用跨平台移动框架编写的应用程序，我觉得这些框架太苛刻，不稳定，不友好的开发体验，难以使用，过于复杂，即便在一两年后也不会使用。</p>
+<p>所以我刚刚完成了第一个 Flutter 应用程序，我觉得可以放心的将更多的时间投入到 Flutter 框架中。 编写 Flutter 应用程序一直是一个试金石，并且 Flutter 证明了自己。 Flutter 完全能够胜任跨 iOS 和 Android 平台的开发。 我也喜欢写后端，我的妻子 Irina 是一个 UX，这样的组合很强悍。</p>
+<p>这将是一个很长的博客文章，因为有很多要涵盖：</p>
+<ul>
+<li>我将 iOS 应用程序移植到 Flutter 的经验</li>
+<li>关于 Flutter 的思考</li>
+<li>对 Google 团队的建议</li>
+</ul>
+<p>我打算快速过滤一下我的想法，以便可以开始开始编写教程（以及更多应用程序！）。</p>
+<h2 id="1-将-iOS-应用程序移植到-Flutter"><a href="#1-将-iOS-应用程序移植到-Flutter" class="headerlink" title="1. 将 iOS 应用程序移植到 Flutter"></a>1. 将 iOS 应用程序移植到 Flutter</h2><p>自从我<a href="https://codeburst.io/why-flutter-will-take-off-in-2018-bbd75f8741b0" target="_blank" rel="noopener">上个月关于 Flutter 的文章</a>以来，我觉得下一步是要真正深入了解一下 Flutter 了。我非常喜欢拥有详尽例子的教程（例如 Digital Ocean 或 Auth0 的教程）。端到端，详细，高质量的例子让我对新技术感兴趣，因为我能够真正看到近乎生产的现成代码并且是以正确的方式来实现。所以我想做同样的 Flutter 教程。</p>
+<p>因此，有了这些目标，重新编写已经在 App Store 上架的 iOS 应用是很好的选择。 Steady Calendar（主页，产品搜索），是我妻子 Irina 和我几年前在柏林生活时设计和开发的习惯追踪器。从那时起，它就成了一个产品，让我们迷上了设计，实施和发布产品的满足感，该产品通过采用健康的习惯帮助他人改善生活。</p>
+<p>我基本上花了一两个月的时间将这个 iOS 应用移植到 Flutter，这样我的 Flutter 教程才更有说服力。</p>
+<p>未来一段时间我会出一系列教程来讲解 app 中已经实现的内容：</p>
+<ul>
+<li>一个“登录前”的导航页。</li>
+<li>Facebook / 电子邮件注册并登录。</li>
+<li>显示日历的网格视图，用户可以点按以突出显示他们完成目标的日期。</li>
+<li>跨平台表单。</li>
+<li>使用<a href="https://pub.dartlang.org/packages/scoped_model" target="_blank" rel="noopener">Scoped 模型</a>进行 Redux 风格的状态管理</li>
+<li>具有栈结构，定位元素，图像和按钮的自定义 UI。</li>
+<li>ListView。</li>
+<li>简单的多语言国际化 UI。</li>
+<li>跨平台的导航栏。</li>
+<li>全球样式的小部件。</li>
+<li>集成测试。</li>
+<li>将应用程序提交到 Apple App Store。</li>
+<li>将应用提交到 Google Play 商店。</li>
+</ul>
+<h2 id="2-关于-Flutter-的思考"><a href="#2-关于-Flutter-的思考" class="headerlink" title="2. 关于 Flutter 的思考"></a>2. 关于 Flutter 的思考</h2><p>虽然我已经写了超过 17 年的后端和网络应用程序，其中 4 年大量参与 iOS 开发，而在去年的工作中，甚至需要大量使用 React Native。</p>
+<p>下面是学习 Flutter 明显的优势：</p>
+<ol>
+<li>开发人员的经验，来自社区的强有力的支持。 因为对 Flutter 的热情，从 Stack Overflow，Google Groups 到博客文章的所有内容都是高质量的。 Google 工程师竭尽所能，积极参与回答 Google Group 上的问题，这让 Google Group 成为一个很棒的社区。 在与来自不同背景的工程师合作时，他们非常有耐心和专业，这对很多其他公司来说很难说了。 这里还有一个活跃的社区，成员们非常活跃，并提供非常周到的答案。 文档很详尽。 这些库非常稳定，并且 Flutter 是基于 Dart，这种语言已经存在多年，学习非常简单，因为它更加成熟并且经过了时间的考验。 总之，Flutter 能给你提供很棒的开发体验。</li>
+<li>正如预期的那样，使用 Dart 编写的第三方库的可用性较低。然而，至少在我的经验中，这些都无关紧要。我需要使用的 95％的功能都是可用的，只有一个例外，即一些集成了流行分析工具的三方库，但没有一个简单的 HTTP 包装器可以处理。</li>
+<li>Material Design 小部件是 Flutter 框架的重要组成部分，非常适合用于专业的跨平台应用程序，用于与 iOS 用户区分开来。我不能向我的 iOS 用户呈现 Material Design 小部件，因为这会让我的应用看起来与他们不同。 Flutter 确实提供了自己的一套 iOS 小部件，但这些小部件还不够全面。幸运的是，在我写的 Steady 应用程序中，大多数用户界面是自定义的。但对于表单类的小部件来说，这很有挑战性。总的来说，Flutter 的文档，示例和 overallFlutter SDK 主要是围绕 Material Design 进行的，这很好，但是对于像我这样的 iOS 开发人员来说需要更多的平衡。</li>
+<li>在 Flutter 中开发自定义 UI 非常简单。在有过 CocoaTouch / iOS 开发背景后，我对 UI 有很高的标准。在深入了解 Flutter 代码和自己编写自定义 UI 的经验后，Google 团队确实做到了自定义 UI 的简化。当然，有一些小部件我认为有些矫枉过正，会使得学习曲线更复杂（即中心小部件），但这无关紧要。在编写了一个真正的应用程序之后，我很快就会开始看到他们可能会定期使用的最关键小部件的模式（将在未来的教程中介绍）。</li>
+<li>作为 iOS 用户，花几个月时间重新编写我的原生 iOS 应用程序 Steady Calendar，并且第一次在 Android 设备上运行起来真的很让人兴奋。我想这与其他跨移动平台框架总是让我退却有关。如果你花费几个月的业余时间，开发一些东西，并意识到你可以在两个主要平台上运行它，那么你会感到很震惊。尽管对于大多数人来说这无关痛痒，但无论如何我需要分享它！</li>
+<li>编写跨平台应用程序会给你带来更多设计方面的挑战，但这与 Flutter 本身没有任何关系，而是与多平台开发有关。 当你计划一个 Flutter 应用程序时，请确保有一个好的设计师和一个很好的自定义 UI 模拟库或已经准备好了 Flutter 应用的开发，以便你有条不紊的使用 Material Design 或 Cupertino 小部件。 在前一种情况下，这不是一个 Flutter 问题，而是编写跨平台应用程序的挑战，你需要确保 UI 设计是基于使用约定的 Android 用户和 iOS 用户。 </li>
+<li>学习使用 Dart 是件很快乐的事。 我喜欢使用类似 TypeScript 或 Flow 的稳定性和可靠性。 为了把它放到上下文中，我有一点 React 背景，并且在过去的几个月里一直在为我的日常工作努力学习 React Native。 我已经用 Objective-C 和 Swift 工作了很多年。 Dart 是一股清流，因为它不会过于复杂，并且拥有强大的核心库和包。 老实说，我认为即使是高中新生也可以使用 Dart 进行基本编程。 我经常听到关于又要学习新语言的抱怨，但对于 Dart 来说，仅需要一两个小时，最多一天就能掌握。</li>
+<li>Flutter 足够震撼。 尽管 Flutter 还不完美，但在我看来，学习曲线，易用性，可用工具使其成为比我过去使用的任何其他移动框架更好的平台。</li>
+</ol>
+<h2 id="Google-应该做什么"><a href="#Google-应该做什么" class="headerlink" title="Google 应该做什么"></a>Google 应该做什么</h2><ol>
+<li>Google 团队的朋友们应继续在其 Google 网上论坛中提供周到，友好且反应迅速的支持。 这是一个很大的优点，更好的支持，更易上手也是框架脱颖而出的原因。 支持和培养社区分为的团队很容易讨人喜欢，并且拥有良好，积极的态度，这至关重要。</li>
+<li>从社区成员那里获取调查，看看哪些小部件可能根本没用。 对于不那么有用的小部件，只需从文档教程中删除它们或完全弃用它们。 例如，’Center’小部件适用于 Hello 程序，World 容器，除此之外，我不知道还有什么其他用处。 为什么“容器”这种更普遍的东西不具备做同样事情的属性？ 这是一个非常简单的例子，但我认为这是 Go 之所以如此成功的部分原因，因为它的核心库是十分精简的。</li>
+<li>投入更多精力在 iOS 用户上。针对 Android 用户， Material Design 非常适合进行快速迭代。 但我绝不会在 iOS 应用中使用 Material Design。尽管如此，至今需要了解大量三方库功能才能进行 iOS 开发，让我觉得学习 Flutter 仍然比 swift 更友好，更简单。 如果 Flutter 能有更多 iOS 风格的小部件，我想很多 iOS 用户都会喜欢学习 Flutter。</li>
+<li>推出更多功能特性的视频。 我希望看到更多这样的教程：<a href="https://flutter.io/get-started/codelab/" target="_blank" rel="noopener">https：//flutter.io/get-started/codelab/</a>，还有展示与后端集成的“端到端”教程。</li>
+<li>主题应用应该少关注 Material Design。 同样，如果我正在编写 iOS 应用程序，我不想使用’MaterialApp’小部件。 主题似乎与此紧密相关，它应该更通用。</li>
+<li>降低 Firebase 在文档中的出现频率，减少 Firebase 的相关推送。 我意识到 Firebase 对于快速上手非常有用，有助于新手更容易上手，但是很多人的后端已经开发完成，或者不会考虑使用 Firebase。 所以我认为更多地强调如何使用简单的 Web 服务和 JSON 会有所帮助。为此 我不得不阅读很多关于此的第三方教程，因为我认为文档不够现实。 未来我可能会出一篇更详细的文章来进行说明。</li>
+</ol>
+<p>到目前为止，我对 Flutter 整体感到非常满意。</p>
+<p>接下来，我将考虑重新编写另一款已上架的 iOS 应用，<a href="http://www.brewswap.co/" target="_blank" rel="noopener">www.brewswap.co</a>该应用更复杂（Tinder 风格的照片滑动，实时聊天等）。</p>
+<p>到目前为止，这些是我能想到的主要内容。 像任何框架一样，有很多不足和学习曲线问题，但总的来说，Flutter 是我觉得我真的可以投资的东西，最重要的是，非常喜欢使用。</p>
+</div><div class="tags"><a href="/tags/flutter/">flutter</a><a href="/tags/开发/">开发</a></div><div class="post-nav"><a class="pre" href="/2019/06/27/直接让网页版应用做你的桌面-App/">直接让网页版应用做你的桌面 App</a><a class="next" href="/2019/06/27/Typora使用不完全总结/">Typora使用不完全总结</a></div><div id="disqus_thread"><div class="btn_click_load"><button class="disqus_click_btn">阅读评论（请确保 Disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config = function () {
+    this.page.url = 'https://yisihudong.com/2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/';
+    this.page.identifier = '2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/';
+    this.page.title = '用 Flutter 开发一个完整的应用是怎样的体验？';
+  };</script><script type="text/javascript" id="disqus-lazy-load-script">$.ajax({
+url: 'https://disqus.com/next/config.json',
+timeout: 2500,
+type: 'GET',
+success: function(){
+  var d = document;
+  var s = d.createElement('script');
+  s.src = '//dotnot.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+  $('.disqus_click_btn').css('display', 'none');
+},
+error: function() {
+  $('.disqus_click_btn').css('display', 'block');
+}
+});</script><script type="text/javascript" id="disqus-click-load">$('.btn_click_load').click(() => {  //click to load comments
+    (() => { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//dotnot.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    $('.disqus_click_btn').css('display','none');
+});</script><script type="text/javascript" id="disqus-count-script">$(function() {
+     var xhr = new XMLHttpRequest();
+     xhr.open('GET', '//disqus.com/next/config.json', true);
+     xhr.timeout = 2500;
+     xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4 && xhr.status === 200) {
+         $('.post-meta .post-comments-count').show();
+         var s = document.createElement('script');
+         s.id = 'dsq-count-scr';
+         s.src = 'https://dotnot.disqus.com/count.js';
+         s.async = true;
+         (document.head || document.body).appendChild(s);
+       }
+     };
+     xhr.ontimeout = function () { xhr.abort(); };
+     xhr.send(null);
+   });
+</script></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/系统搭建/">系统搭建</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Typora/" style="font-size: 15px;">Typora</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/同步/" style="font-size: 15px;">同步</a> <a href="/tags/桌面App/" style="font-size: 15px;">桌面App</a> <a href="/tags/网页应用/" style="font-size: 15px;">网页应用</a> <a href="/tags/flutter/" style="font-size: 15px;">flutter</a> <a href="/tags/开发/" style="font-size: 15px;">开发</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/testfile001/">testfile001</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/印象笔记+hexo搭建自己的个人博客/">印象笔记+hexo搭建自己的博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/直接让网页版应用做你的桌面-App/">直接让网页版应用做你的桌面 App</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/">用 Flutter 开发一个完整的应用是怎样的体验？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/Typora使用不完全总结/">Typora使用不完全总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/通过DaoCloud的持续集成发布Hexo博客/">通过DaoCloud的持续集成发布Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/27/最完美的Hexo多电脑同步方法/">最完美的Hexo多电脑同步方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/hexo史上最全搭建教程/">hexo史上最全搭建教程</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//dotnot.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.github.com/" title="github" target="_blank">github</a><ul></ul><a href="http://www.huxiu.com/" title="虎嗅网" target="_blank">虎嗅网</a><ul></ul><a href="http://www.36kr.com/" title="36kr" target="_blank">36kr</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">壹派胡言.</a> Powered by<a rel="nofollow" target="_blank" href="https://yisihudong.com"> BigHer Studio.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

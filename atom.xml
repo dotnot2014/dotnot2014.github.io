@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>壹派胡言</title>
+  
+  <subtitle>移动互联网重度精神病患者</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://yisihudong.com/"/>
+  <updated>2019-07-29T02:24:05.111Z</updated>
+  <id>https://yisihudong.com/</id>
+  
+  <author>
+    <name>Eric Woo</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>testfile001</title>
+    <link href="https://yisihudong.com/2019/07/29/testfile001/"/>
+    <id>https://yisihudong.com/2019/07/29/testfile001/</id>
+    <published>2019-07-29T02:22:33.000Z</published>
+    <updated>2019-07-29T02:24:05.111Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;这是一片测试文档&quot;&gt;&lt;a href=&quot;#这是一片测试文档&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>印象笔记+hexo搭建自己的博客</title>
+    <link href="https://yisihudong.com/2019/07/29/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0+hexo%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://yisihudong.com/2019/07/29/印象笔记+hexo搭建自己的个人博客/</id>
+    <published>2019-07-29T01:56:27.104Z</published>
+    <updated>2019-07-29T01:56:27.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;之前在逛&lt;a href=&quot;https://www.v2ex.com/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>直接让网页版应用做你的桌面 App</title>
+    <link href="https://yisihudong.com/2019/06/27/%E7%9B%B4%E6%8E%A5%E8%AE%A9%E7%BD%91%E9%A1%B5%E7%89%88%E5%BA%94%E7%94%A8%E5%81%9A%E4%BD%A0%E7%9A%84%E6%A1%8C%E9%9D%A2-App/"/>
+    <id>https://yisihudong.com/2019/06/27/直接让网页版应用做你的桌面-App/</id>
+    <published>2019-06-27T10:37:36.000Z</published>
+    <updated>2019-07-29T01:56:27.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;💻 随着互联网前端的迅捷发展，越来越多产品网页端的使用体验愈加完善。用 Web 技术搭建的 &lt;strong&gt;网页应用&lt;/strong&gt; 不仅有着现代化的 UI，甚至体验比原生桌面客户端都要好上不少。&lt;/p&gt;
+&lt;p&gt;而原生桌面客户端，由于要适配 Windows、macOS
+        
+      
+    
+    </summary>
+    
+    
+      <category term="桌面App" scheme="https://yisihudong.com/tags/%E6%A1%8C%E9%9D%A2App/"/>
+    
+      <category term="网页应用" scheme="https://yisihudong.com/tags/%E7%BD%91%E9%A1%B5%E5%BA%94%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 Flutter 开发一个完整的应用是怎样的体验？</title>
+    <link href="https://yisihudong.com/2019/06/27/%E7%94%A8-Flutter-%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E5%BA%94%E7%94%A8%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BD%93%E9%AA%8C%EF%BC%9F/"/>
+    <id>https://yisihudong.com/2019/06/27/用-Flutter-开发一个完整的应用是怎样的体验？/</id>
+    <published>2019-06-27T08:23:28.000Z</published>
+    <updated>2019-07-29T01:56:27.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Flutter 是自 Ruby on Rails 或 Go 以来最让我感到兴奋的技术。 经过多年的努力深入学习 iOS 应用开发，最终疏远了那么多 Android 好友，这让我感到害怕。
+        
+      
+    
+    </summary>
+    
+    
+      <category term="flutter" scheme="https://yisihudong.com/tags/flutter/"/>
+    
+      <category term="开发" scheme="https://yisihudong.com/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Typora使用不完全总结</title>
+    <link href="https://yisihudong.com/2019/06/27/Typora%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%80%BB%E7%BB%93/"/>
+    <id>https://yisihudong.com/2019/06/27/Typora使用不完全总结/</id>
+    <published>2019-06-27T07:41:34.000Z</published>
+    <updated>2019-07-29T01:56:27.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;一个typora使用方法的不完全总结：&lt;/p&gt;
+&lt;iframe height=&quot;498&quot; width=&quot;700&quot; src=&quot;//player.bilibili.com/player.html?aid=18508430&amp;cid=30199921&amp;page=1&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Typora" scheme="https://yisihudong.com/tags/Typora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过DaoCloud的持续集成发布Hexo博客</title>
+    <link href="https://yisihudong.com/2019/06/27/%E9%80%9A%E8%BF%87DaoCloud%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%8F%91%E5%B8%83Hexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://yisihudong.com/2019/06/27/通过DaoCloud的持续集成发布Hexo博客/</id>
+    <published>2019-06-27T07:29:27.000Z</published>
+    <updated>2019-07-29T01:56:27.133Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;什么是持续集成&quot;&gt;&lt;a href=&quot;#什么是持续集成&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最完美的Hexo多电脑同步方法</title>
+    <link href="https://yisihudong.com/2019/06/27/%E6%9C%80%E5%AE%8C%E7%BE%8E%E7%9A%84Hexo%E5%A4%9A%E7%94%B5%E8%84%91%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95/"/>
+    <id>https://yisihudong.com/2019/06/27/最完美的Hexo多电脑同步方法/</id>
+    <published>2019-06-27T07:13:46.000Z</published>
+    <updated>2019-07-29T01:56:27.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;经常我们有一个场景：需要在公司或者家庭多个电脑完成Hexo的博客撰写和发布工作。这就涉及到Hexo多电脑的同步问题。&lt;/p&gt;
+&lt;p&gt;网上的方案基本上都是多分支方案。也即，在同一个仓库创建两个分支：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Hexo分支 –
+        
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://yisihudong.com/tags/hexo/"/>
+    
+      <category term="同步" scheme="https://yisihudong.com/tags/%E5%90%8C%E6%AD%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo史上最全搭建教程</title>
+    <link href="https://yisihudong.com/2019/06/24/hexo%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>https://yisihudong.com/2019/06/24/hexo史上最全搭建教程/</id>
+    <published>2019-06-24T04:09:40.000Z</published>
+    <updated>2019-07-29T01:56:27.104Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，
+        
+      
+    
+    </summary>
+    
+      <category term="系统搭建" scheme="https://yisihudong.com/categories/%E7%B3%BB%E7%BB%9F%E6%90%AD%E5%BB%BA/"/>
+    
+    
+      <category term="hexo" scheme="https://yisihudong.com/tags/hexo/"/>
+    
+      <category term="教程" scheme="https://yisihudong.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+</feed>
