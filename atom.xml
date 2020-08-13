@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yisihudong.com/"/>
-  <updated>2019-07-29T01:56:27.104Z</updated>
+  <updated>2020-08-13T07:47:05.652Z</updated>
   <id>https://yisihudong.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo史上最全搭建教程</title>
+    <link href="https://yisihudong.com/2020/08/13/2020%E7%9A%84%E7%AC%94%E8%AE%B0%E9%80%89%E6%8B%A9/"/>
+    <id>https://yisihudong.com/2020/08/13/2020的笔记选择/</id>
+    <published>2020-08-13T07:46:40.000Z</published>
+    <updated>2020-08-13T07:47:05.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;现在越来越多的人喜欢利用Github搭建静态网站，原因不外乎简单省钱。本人也利用hexo+github搭建了本博客，用于分享一些心得。在此过程中，折腾博客的各种配置以及功能占具了我一部分时间，在此详细记录下我是如何利用hexo+github搭建静态博客以及一些配置相关问题，
+        
+      
+    
+    </summary>
+    
+      <category term="工具使用" scheme="https://yisihudong.com/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="wolai" scheme="https://yisihudong.com/tags/wolai/"/>
+    
+      <category term="笔记" scheme="https://yisihudong.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>印象笔记+hexo搭建自己的博客</title>
