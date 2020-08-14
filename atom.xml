@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yisihudong.com/"/>
-  <updated>2020-08-13T07:48:10.893Z</updated>
+  <updated>2020-08-14T00:25:52.355Z</updated>
   <id>https://yisihudong.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全栈开发实战：用Vue2+Koa2开发完整的前后端项目</title>
+    <link href="https://yisihudong.com/2020/08/14/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98%EF%BC%9A%E7%94%A8Vue2+Koa2%E5%BC%80%E5%8F%91%E5%AE%8C%E6%95%B4%E7%9A%84%E5%89%8D%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://yisihudong.com/2020/08/14/全栈开发实战：用Vue2+Koa2开发完整的前后端项目/</id>
+    <published>2020-08-14T00:22:40.000Z</published>
+    <updated>2020-08-14T00:25:52.355Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文从一名新手的角度（默认对Vue有了解，对Koa或者Express有了解）出发，从0开始构建一个数据通过Koa提供API的形式获取，页面通过Vue渲染的完整的前端项目。可以了解到Vue构建单页面的一些知识以及前端路由的使用、Koa如何提供API接口，如何进行访问过滤（路由
+        
+      
+    
+    </summary>
+    
+      <category term="全栈开发" scheme="https://yisihudong.com/categories/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="vue" scheme="https://yisihudong.com/tags/vue/"/>
+    
+      <category term="koa" scheme="https://yisihudong.com/tags/koa/"/>
+    
+  </entry>
   
   <entry>
     <title>在2020，什么工具能取代Evernote/印象笔记？</title>
