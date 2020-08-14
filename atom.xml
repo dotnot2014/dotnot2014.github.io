@@ -177,7 +177,7 @@
     <link href="https://yisihudong.com/2019/06/27/%E9%80%9A%E8%BF%87DaoCloud%E7%9A%84%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%8F%91%E5%B8%83Hexo%E5%8D%9A%E5%AE%A2/"/>
     <id>https://yisihudong.com/2019/06/27/通过DaoCloud的持续集成发布Hexo博客/</id>
     <published>2019-06-27T07:29:27.000Z</published>
-    <updated>2019-07-29T01:56:27.133Z</updated>
+    <updated>2020-08-14T02:53:14.312Z</updated>
     
     <summary type="html">
     
@@ -185,7 +185,8 @@
       
         
         
-          &lt;h2 id=&quot;什么是持续集成&quot;&gt;&lt;a href=&quot;#什么是持续集成&quot; class=&quot;headerlink&quot;
+          &lt;blockquote&gt;
+&lt;p&gt;持续集成是一种软件开发实践，即团队开发成员经常集成它们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。
         
       
     
